@@ -5,7 +5,12 @@ const FormTodo = ({ handleSubmit, handleChange, formInput }) => {
   return (
     <Form onSubmit={handleSubmit} className="d-flex p-3">
       <Form.Group className="p-1">
-        <Form.Control type="text" value={formInput} onChange={handleChange} />
+        <Form.Control
+          type="text"
+          value={formInput}
+          onChange={handleChange}
+          required
+        />
       </Form.Group>
       <Form.Group className="p-1">
         <Button variant="primary" type="submit">

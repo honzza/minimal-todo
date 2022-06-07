@@ -11,8 +11,17 @@ const Todos = () => {
     setFormInput(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fetch("http://localhost:5000/store-todo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: formInput }),
+    }).then((res) => {
+      console.log(res.status);
+    });
     setTodos((prevState) => [...prevState, formInput]);
     setFormInput("");
   };
